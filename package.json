@@ -1,0 +1,22 @@
+{
+  "name": "@scbd/www-css",
+  "version": "1.0.2",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scbd/www-css.git"
+  },
+  "scripts": {
+    "dev":  "rm -rf ./dist && mkdir ./dist && cp -R src/images/ dist/images && cp -R src/fonts dist/fonts && sass --watch --update --style=expanded   src/scss/style.scss:dist/style.css",
+    "build": "rm -rf ./dist && mkdir ./dist && cp -R src/images/ dist/images && cp -R src/fonts dist/fonts && sass --no-source-map  --style=expanded   src/scss/style.scss:dist/style.css && sass --no-source-map --style=compressed src/scss/style.scss:dist/style.min.css",
+    "release": "yarn publish --access=public --tag latest",
+  },
+  "main": "dist/style.min.css",
+  "unpkg": "dist/style.min.css",
+  "files": [
+    "dist/*"
+  ],
+  "devDependencies": {
+    "sass": "^1.75.0"
+  }
+}
